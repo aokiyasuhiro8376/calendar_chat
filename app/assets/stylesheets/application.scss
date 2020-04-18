@@ -14,9 +14,13 @@
  *= require_self
  */
 
-
-
-
 @import "config/reset";
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
 @import "chats/welcome";
+@import "chats/sub-bar";
 
