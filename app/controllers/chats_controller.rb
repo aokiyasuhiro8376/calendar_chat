@@ -10,6 +10,7 @@ class ChatsController < ApplicationController
   # GET /chats/1
   # GET /chats/1.json
   def show
+    @chats = Chat.all
     @chat = Chat.find_by(id: params[:id])
     @user = User.find_by(id: @chat.user_id) #ユーザーのデータを取得する処理
   end
