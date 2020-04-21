@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "chats#index"
+  get 'rooms/show'
+  get 'users/index'
+  get 'users/show'
+  devise_for :users
+  resources :users
+  resources :rooms
   resources :chats
 
 end
