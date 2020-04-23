@@ -1,12 +1,13 @@
+<%#
 <h1>Rooms#show</h1>
 <p>Find me in app/views/rooms/show.html.erb</p>
 
-<h1><%= @room.name %></h1>
+<h1><%= @room.name </h1>
 
 <h4>参加者</h4>
-<% @entries.each do |e| %>
-  <%= link_to e.user.name, user_path(e.user_id) %>
-<% end %>
+<% @entries.each do |e| 
+  <%= link_to e.user.name, user_path(e.user_id) 
+<% end 
 
 <h1>Chat room</h1>
 <form>
@@ -14,6 +15,18 @@
   <input type="text" id="chat-input" data-behavior="room_speaker">
 </form>
 
-<div id="chats" data-room_id="<%= @room.id %>">
+<div id="chats" data-room_id="<%= @room.id %>
+  <%# <%= render @chats %>
+<%# </div> %>
+
+
+
+
+<h1>Chat room</h1>
+<%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
+<div id='chats' data-room_id="<%= @room.id %>">
   <%= render @chats %>
 </div>
+
+<%= label_tag :message, 'Say something:' %>
+<%= text_field_tag :message, nil, data: { behavior: 'room_speaker' } %>

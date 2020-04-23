@@ -1,0 +1,13 @@
+<%# <p id="notice"><%= notice %></p> 
+<div class = 'wrapper'>
+  <%= render 'welcome' %>
+  <%= render 'sub-bar' %>
+</div>
+
+<div>
+  <ul>
+    <% @rooms.each do |room| %>
+      <li><%= link_to "ROOM#{room.id}", rooms_path(room) %></li>
+    <% end %>
+  </ul>
+</div>

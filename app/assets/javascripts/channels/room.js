@@ -38,7 +38,8 @@ document.addEventListener('turbolinks:load', function() {
       });
     }
   });
-  return $('#chat-input').on('keypress', function(event) {
+  // return $('#chat-input')
+  $(document).on.on('keypress', function(event) {
     if (event.keyCode === 13) {
       App.room.speak(event.target.value);
       event.target.value = '';
