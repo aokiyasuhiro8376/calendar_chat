@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: 'rooms#index'
-  # root to: 'rooms#index'
+  # rootはRoom一覧画面にしておく
+  root 'rooms#index'
+  devise_for :user
+  # resourcesを使うとRESTfulなURLを自動生成できる
+  # resources :rooms, only: :show
+  resources :chats
+  
   # root to: "chats#index"
   # get 'rooms/show'
   # get 'users/index'
   # get 'users/show'
   resources :users
-  # resources :rooms
-  resources :chats
-  # resources :rooms, only: %i[show]
-
+  resources :rooms
 end

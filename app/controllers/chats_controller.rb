@@ -28,8 +28,11 @@ class ChatsController < ApplicationController
   # POST /chats
   # POST /chats.json
   def create
-    @chat = Chat.new(chat_params)
+    @chat = Chat.create(chat_params)
     respond_to do |format|
+
+      # binding.pry
+
       if @chat.save
         ActionCable.server.broadcast 'room_channel', content: @chat 
         format.html { redirect_to @chat }
@@ -74,6 +77,6 @@ class ChatsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def chat_params
-    params.require(:chat).permit(:message).merge(user_id: current_user.id)
+    params.require(:chat).permit(:message).merge(user_id: current_user.id, room_id: params['room'])
   end
 end

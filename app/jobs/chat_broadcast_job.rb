@@ -9,7 +9,7 @@
 
 
 class DirectMessageBroadcastJob < ApplicationJob
-  queue_as :default
+  # queue_as :default
 
   def perform(chat)
     ActionCable.server.broadcast "room_channel_#{chat.room_id}", chat: render_chats(chat)
