@@ -25,8 +25,21 @@
 <h1>Chat room</h1>
 <%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
 <div id='chats' data-room_id="<%= @room.id %>">
-  <%= render @chats %>
+  <ul>
+    <% @chats.each do |chat| %>
+      <li><%= chat.message %></li>
+    <% end %>
+  </ul>
 </div>
+
+<%# <div class='chat'>
+  <%# 投稿者を特定できるようにメールアドレスを表示させておく %>
+  <%# <ul> %>
+    <%# <% @chats.each do |chat| %> %>
+      <%# <li><%= chat.message %></li> %>
+    <%# <% end %> %>
+  <%# </ul> %>
+<%# </div> %> %>
 
 <%= label_tag :message, 'Say something:' %>
 <%= text_field_tag :message, nil, data: { behavior: 'room_speaker' } %>

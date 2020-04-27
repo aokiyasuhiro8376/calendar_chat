@@ -3,13 +3,14 @@ class RoomsController < ApplicationController
 
   def index
     @rooms = Room.all.order(:id)
-    @user = User.new(user_params)
+    @user = User.find_by(params[:room_id])
+    # binding.pry
   end
 
-  def new
-    @user = User.new(user_params)
-    @room = Room.new(room_params)
-  end
+  # def new
+  #   @user = User.new(user_params)
+  #   @room = Room.new(room_params)
+  # end
 
   def create
     @user = User.create(user_params)
@@ -19,6 +20,10 @@ class RoomsController < ApplicationController
   def show
     @room = Room.find(params[:id])
     @chats = Chat.all
+    user = User.find(params[:id])
+    # @name = user.name
+    # @chats = user.chats
+
     # binding.pry
 
   end
@@ -44,17 +49,13 @@ class RoomsController < ApplicationController
   #   redirect_to room_path(@room.id)
   # end
 
-  # private
-  # def user_params
-  #   params.require(:user).merge(room_id: params['room'])
-  # end
+  private
+  def user_params
+  # params.require(:user).permit(:name, :email).merge(room_id: params['room'])
 
-    def user_params
-    # params.require(:user).permit(:name, :email).merge(room_id: params['room'])
+  params.require(:user).merge(room_id: params['room'])
 
-    params.require(:user).merge(room_id: params['room'])
-
-    # binding.pry
+  # binding.pry
 
   end
 

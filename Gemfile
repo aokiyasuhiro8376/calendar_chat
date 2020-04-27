@@ -69,4 +69,6 @@ gem 'devise'
 # jQueryを使用するために必要
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-
+# デバック関連
+gem 'better_errors'
+gem 'binding_of_caller'

@@ -8,7 +8,8 @@ class ApplicationController < ActionController::Base
 
   #ログイン時
   def after_sign_in_path_for(resource)
-    room_path
+    @user = User.find_by(params[:room_id])
+    room_path(@user.room_id)
   end
 
   #ログアウト時
