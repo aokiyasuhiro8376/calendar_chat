@@ -24,13 +24,15 @@
 
 <h1>Chat room</h1>
 <%#                ここの data-room_id を使ってjs側で部屋を見分ける %>
-<div id='chats' data-room_id="<%= @room.id %>">
-  <ul>
-    <% @chats.each do |chat| %>
-      <li><%= chat.message %></li>
-    <% end %>
-  </ul>
-</div>
+<%# <div id='chats' data-room_id="<%= @room.id %>"> %>
+  <%# <ul> %>
+    <%# <% @chats.each do |chat| %> %>
+      <%# <li><%= chat.message %></li> %>
+    <%# <% end %> %>
+  <%# </ul> %>
+<%# </div> %>
+
+<%= render 'chats/chat' %>
 
 <%# <div class='chat'>
   <%# 投稿者を特定できるようにメールアドレスを表示させておく %>
