@@ -31,10 +31,8 @@ class ChatsController < ApplicationController
     @chat = Chat.create(chat_params)
     respond_to do |format|
 
-      # binding.pry
-
       if @chat.save
-        ActionCable.server.broadcast 'room_channel', content: @chat 
+        ActionCable.server.broadcast 'room_channel', message: @chat 
         format.html { redirect_to @chat }
         format.json { render :show, status: :created, location: @chat }
         format.js

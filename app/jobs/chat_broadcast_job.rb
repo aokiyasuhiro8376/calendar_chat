@@ -1,15 +1,5 @@
-# class ChatBroadcastJob < ApplicationJob
-#   queue_as :default
-
-#   def perform(*args)
-#     # Do something later
-#   end
-# end
-
-
-
-class DirectMessageBroadcastJob < ApplicationJob
-  # queue_as :default
+class ChatBroadcastJob < ApplicationJob
+  queue_as :default
 
   def perform(chat)
     ActionCable.server.broadcast "room_channel_#{chat.room_id}", chat: render_chat(chat)

@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   # rootはRoom一覧画面にしておく
   root 'rooms#index'
   # resourcesを使うとRESTfulなURLを自動生成できる
-  resources :rooms do
-    resources :chats
-  end
+  resources :rooms
+  resources :chats
   resources :users
 end
