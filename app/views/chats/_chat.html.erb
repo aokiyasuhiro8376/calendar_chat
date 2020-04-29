@@ -1,11 +1,3 @@
-<%# <div class='chat'> %>
-  <%# 投稿者を特定できるようにメールアドレスを表示させておく %>
-  <%# <p><%= "#{chat.user.email}: #{chat.message}" %></p> %>
-<%# </div> %>
-
-
-<%# <%= chats.message %><br> %>
-
 <div id='chats' data-room_id="<%= @room.id %>">
   <ul>
     <% @chats.each do |chat| %>
