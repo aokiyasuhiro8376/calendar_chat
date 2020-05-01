@@ -21,8 +21,12 @@
   height: 100vh;
   position: relative;
 }
+
+/* テンプレート */
 @import "rooms/welcome";
 @import "rooms/sub-bar";
 @import "chats/show";
-
+/* gem */
+@import 'font-awesome-sprockets';
+@import 'font-awesome'
 

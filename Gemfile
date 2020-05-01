@@ -72,3 +72,6 @@ gem 'jquery-ui-rails'
 # デバック関連
 gem 'better_errors'
 gem 'binding_of_caller'
+# FontAwesome
+gem 'font-awesome-rails'
+gem 'font-awesome-sass'

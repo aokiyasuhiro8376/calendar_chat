@@ -7,21 +7,21 @@
 </div>
 
 
-<p class="<%= direct_message.id %>" style= "color: white; margin-top: 0;">
-    <%= attachment_image_tag direct_message.user, :profile_image, fallback: "no_image.jpg", class:"profile-img-circle", size: "40x40" %>
-    <%= direct_message.user.name %>
+<p class="<%= chat.id %>" style= "color: white; margin-top: 0;">
+    <%= attachment_image_tag chat.user, :profile_image, fallback: "no_image.jpg", class:"profile-img-circle", size: "40x40" %>
+    <%= chat.user.name %>
 </p>
-<p class="<%= direct_message.id %>">
+<p class="<%= chat.id %>">
     <span class="balloon1-top">
-        <h7 class="dm_content"><%= direct_message.content %></h7><br>
-        <h7 style="color: #C0C0C0;"><%= direct_message.created_at.strftime("%Y/%m/%d %H:%M") %></h7>
+        <h6 class="chat_message"><%= chat.message %></h6><br>
+        <h6 style="color: #C0C0C0;"><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></h6>
     </span>
 </p><br>
 
 <!-- メッセージの表示位置を指定する -->
 <script>
     //メッセージのユーザーidを取ってくる
-    var direct_message = <%= direct_message.user.id %>;
+    var chat = <%= chat.user.id %>;
     //id="current_user"の内容を取得
     var dm_user = document.getElementById('current_user');
     //dm_userのdata-idを取得する

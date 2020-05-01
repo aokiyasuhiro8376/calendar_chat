@@ -13,9 +13,9 @@
 
 
 <% @entries.each do |e| %>
-   <!-- eachで回したentryユーザーがログインユーザーであれば、@classに"current_user"の文字列を代入する。ログインユーザーであれば、空白を代入する -->
+  <!-- eachで回したentryユーザーがログインユーザーであれば、@classに"current_user"の文字列を代入する。ログインユーザーであれば、空白を代入する -->
     <% current_user == e.user ? @class = "current_user" : @class = ""  %>
-       <!-- eachで回したentryユーザーがログインユーザーでなければ、entryユーザー名を表示する -->
+      <!-- eachで回したentryユーザーがログインユーザーでなければ、entryユーザー名を表示する -->
         <% if e.user != current_user %>
           <h5 class="text-left <%= @class %>" id="<%= @class %>" style="font-size: 30px;" data-id="<%= e.user.id %>"><%= link_to "@#{e.user.name}", user_path(e.user_id) %></h5>
         <% else %>
