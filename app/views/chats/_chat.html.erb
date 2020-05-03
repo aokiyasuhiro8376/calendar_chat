@@ -6,16 +6,15 @@
   </ul>
 </div>
 
-
 <p class="<%= chat.id %>" style= "color: white; margin-top: 0;">
-    <%= attachment_image_tag chat.user, :profile_image, fallback: "no_image.jpg", class:"profile-img-circle", size: "40x40" %>
-    <%= chat.user.name %>
+  <%= attachment_image_tag chat.user, :profile_image, fallback: "no_image.jpg", class:"profile-img-circle", size: "40x40" %>
+  <%= chat.user.name %>
 </p>
 <p class="<%= chat.id %>">
-    <span class="balloon1-top">
-        <h6 class="chat_message"><%= chat.message %></h6><br>
-        <h6 style="color: #C0C0C0;"><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></h6>
-    </span>
+  <span class="balloon1-top">
+    <h6 class="chat_message"><%= chat.message %></h6><br>
+    <h6 style="color: #C0C0C0;"><%= chat.created_at.strftime("%Y/%m/%d %H:%M") %></h6>
+  </span>
 </p><br>
 
 <!-- メッセージの表示位置を指定する -->
@@ -23,13 +22,13 @@
     //メッセージのユーザーidを取ってくる
     var chat = <%= chat.user.id %>;
     //id="current_user"の内容を取得
-    var dm_user = document.getElementById('current_user');
-    //dm_userのdata-idを取得する
-    var current_user = dm_user.getAttribute('data-id')
-    //dm_userがログインユーザーであれば右に表示する
-    if(direct_message == current_user){
-      $('p.' + <%= direct_message.id %>).css('text-align', 'right');
+    var chat_user = document.getElementById('current_user');
+    //chat_userのdata-idを取得する
+    var current_user = chat_user.getAttribute('data-id')
+    //chat_userがログインユーザーであれば右に表示する
+    if(chat == current_user){
+      $('p.' + <%= chat.id %>).css('text-align', 'right');
     }else{
-      $('p.' + <%= direct_message.id %>).css('text-align', 'left');
+      $('p.' + <%= chat.id %>).css('text-align', 'left');
     }
 </script>
