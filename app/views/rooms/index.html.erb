@@ -2,6 +2,7 @@
 <div class = 'wrapper'>
   <%= render 'welcome' %>
   <%= render 'sub-bar' %>
+  <%= render 'chat' %>
 </div>
 
 <h2>メッセージ一覧</h2>
@@ -16,7 +17,6 @@
           <%= attachment_image_tag e.user, :profile_image, format: 'jpeg', class: "rounded-circle", fallback: "no_image.jpg", size: "30x30" %>
           <%= e.user.name %>
         <% end %>
-        binding.pry
       </td>
       <td>
       <!-- 最新メッセージ内容の最初の7文字を表示する -->
